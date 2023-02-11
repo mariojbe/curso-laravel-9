@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getUsers(string|null $search =null)
+    public function getUsers(string|null $search = null)
     {
         $users = $this->where(
             function ($query) use ($search) {
@@ -54,5 +54,11 @@ class User extends Authenticatable
         )->get();
 
         return $users;
+    }
+
+    // RELACIONAMENTO DE UM PARA MUITOS
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
