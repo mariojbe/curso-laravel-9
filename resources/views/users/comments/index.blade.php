@@ -5,7 +5,7 @@
 @section('content')
     <h1 class="text-2x1 font-semibold leading-tigh py-2">
         Comantários do Usuário {{ $user->name }}
-        (<a href="{{ route('users.create') }}">+</a>)
+        (<a href="{{ route('comments.create', $user->id) }}">+</a>)
     </h1>
 
     <form action="{{ route('users.index') }}" method="get">
@@ -17,9 +17,8 @@
         @foreach ($comments as $comment)
             <li>
                 {{ $comment->body }} -
-                {{ $comment->visible }}
+                {{ $comment->visible ? 'SIM' : 'NÃO' }}
                 | <a href="{{ route('users.edit', $user->id) }}">Editar</a>
-                | <a href="{{ route('users.show', $user->id) }}">Detalhes</a>
             </li>
         @endforeach
     </ul>

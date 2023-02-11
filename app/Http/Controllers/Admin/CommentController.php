@@ -41,9 +41,14 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($userId)
     {
         //
+        if (!$user = $this->user->find($userId)) {
+            return redirect()->back();
+        }
+
+        return view('users.comments.create', compact('user'));
     }
 
     /**
@@ -52,9 +57,19 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $userId)
     {
         //
+        if (!$user = $this->user->find($userId)) {
+            return redirect()->back();
+        }
+
+        $user->comments()->create([
+            'body' => $request->body,
+            'visible' => isset($request->visible)
+        ]);
+
+        return redirect()->route('comments.index', $user->id);
     }
 
     /**
