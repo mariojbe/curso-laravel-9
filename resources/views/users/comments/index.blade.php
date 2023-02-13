@@ -8,7 +8,7 @@
         (<a href="{{ route('comments.create', $user->id) }}">+</a>)
     </h1>
 
-    <form action="{{ route('users.index') }}" method="get">
+    <form action="{{ route('comments.index', $user->id) }}" method="get">
         <input type="search" name="search" id="search" placeholder="Pesquisar...">
         <button class="btn btn-primary">Pesquisar</button>
     </form>
@@ -18,7 +18,7 @@
             <li>
                 {{ $comment->body }} -
                 {{ $comment->visible ? 'SIM' : 'NÃO' }}
-                | <a href="{{ route('users.edit', $user->id) }}">Editar</a>
+                | <a href="{{ route('comments.edit', ['user' => $user->id, 'id' => $comment->id]) }}">Editar</a>
             </li>
         @endforeach
     </ul>

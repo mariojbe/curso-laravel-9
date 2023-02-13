@@ -19,7 +19,7 @@ class Comment extends Model
     ];
 
     // RELACIONAMENTO DE UM PARA MUITOS
-    public function comments()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
