@@ -51,7 +51,7 @@ class User extends Authenticatable
                     $query->orWhere('name', 'LIKE', "%{search}%");
                 }
             }
-        )->with('comments')->get();
+        )->with('comments')->paginate(15);
 
         return $users;
     }
