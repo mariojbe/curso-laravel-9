@@ -12,7 +12,8 @@
 
                 @include('includes.validantions-form')
 
-                <form class="row g-3" action="{{ route('users.update', $user->id) }}" method="post">
+                <form class="row g-3" action="{{ route('users.update', $user->id) }}" method="post"
+                    enctype="multipart/form-data">
                     @method('put')
                     @include('users._partials.form')
                 </form>

@@ -15,6 +15,13 @@
 
     <ul>
         @foreach ($users as $user)
+            @if ($user->image)
+                <img src="{{ url("storage/{$user->image}") }}" alt="{{ $user->name }}" class="object-cover w-20"
+                    srcset="">
+            @else
+                <img src="{{ url('images/favicon.ico') }}" alt="{{ $user->name }}" class="object-cover w-20"
+                    srcset="">
+            @endif
             <li>
                 {{ $user->name }} -
                 {{ $user->email }}

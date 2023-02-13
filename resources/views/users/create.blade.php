@@ -12,7 +12,7 @@
 
                 @include('includes.validantions-form')
 
-                <form class="row g-3" action="{{ route('users.store') }}" method="post">
+                <form class="row g-3" action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @include('users._partials.form')
                 </form>

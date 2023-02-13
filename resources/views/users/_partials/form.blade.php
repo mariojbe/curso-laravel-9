@@ -13,6 +13,10 @@
     <label for="password" class="form-label">Senha</label>
     <input class="form-control" type="password" name="password" id="password" placeholder="Senha" value="">
 </div>
+<div class="form-group mb-3">
+    <label for="password" class="form-label">Imagem de Perfil</label>
+    <input class="form-control" type="file" name="image" id="password" value="">
+</div>
 <div class="d-grid gap-2">
     <input type="submit" class="btn btn-success" value="Salvar">
 </div>
